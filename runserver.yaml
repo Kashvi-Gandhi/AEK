@@ -1,0 +1,6 @@
+homepage:
+  menu:
+    replace:
+
+      - desc: Welcome Pack
+        screenName: welcome-pack
