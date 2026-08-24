@@ -1,10 +1,7 @@
-import { getFileDetails } from './sharepoint';
+import router from '@ombiel/aek-devserver/router';
 
-export async function welcomePack(req, res) {
-  try {
-    const file = await getFileDetails();
-    res.json({ success: true, file });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-}
+router.get('/', (req, res) => {
+  res.render('welcome-pack');
+});
+
+export default router;
