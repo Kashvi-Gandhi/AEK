@@ -20,7 +20,10 @@
     "@ombiel/aek-asset-store": "^0.0.8",
     "@ombiel/aek-css": "1.x.x",
     "@ombiel/aek-lib": ">=1.4.0-0 <1.5.0",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pdfjs-dist": "^2.16.105",
     "react": "^16.8.6",
     "react-dom": "^16.6.6"
   },
