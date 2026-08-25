@@ -1,0 +1,21 @@
+<<
+@configure
+  scripts:[
+    "screen-2"
+  ]
+>>
+
+<< extend "templates/master.ect" >>
+
+<< content "body" >>
+
+  <<
+    cmAuth = aek.extension("CMAuthUtilities")
+    userDetails = cmAuth.getTokenAttributes()
+  >>
+
+  <script>
+    window.userDetails = <<- JSON.stringify(userDetails) >>;
+  </script>
+
+<< end >>

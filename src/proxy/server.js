@@ -58,41 +58,40 @@ const app =
  * ============================================================
  */
 const TENANT_ID =
-  config.tenantId;
+  config.TENANT_ID;
 
 const CLIENT_ID =
-  config.clientId;
+  config.CLIENT_ID;
 
 const CLIENT_SECRET =
-  config.clientSecret;
+  config.CLIENT_SECRET;
 
 const SITE_ID =
-  config.siteId;
+  config.SITE_ID;
 
 const DRIVE_ID =
-  config.driveId;
+  config.DRIVE_ID;
 
 const DOCUMENT_LIBRARY_NAME =
-  config.documentLibraryName;
+  config.DOCUMENT_LIBRARY_NAME;
 
 const CAMPUS =
-  config.campus;
+  config.CAMPUS;
 
 const DOCUMENT_TYPE =
-  config.documentType;
+  config.DOCUMENT_TYPE;
 
 const DOCUMENT_TYPE_FIELD =
-  config.documentTypeField;
+  config.DOCUMENT_TYPE_FIELD;
 
 const CAMPUS_FIELD =
-  config.campusField;
+  config.CAMPUS_FIELD;
 
 const PORT =
-  config.port || 3001;
+  config.PORT;
 
 const AEK_ORIGIN =
-  config.aekOrigin ||
-  "http://localhost:5000";
+  config.AEK_ORIGIN;
 /*
  * ============================================================
  * Validate required configuration
