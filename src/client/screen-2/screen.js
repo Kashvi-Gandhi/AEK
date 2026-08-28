@@ -45,72 +45,72 @@ import {
 } from "@ombiel/aek-lib";
 
 export default class Screen extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    const userDetails = window.userDetails || {};
+  //   const userDetails = window.userDetails || {};
 
-    const isGuest =
-      typeof window.isGuest != "boolean"
-        ? window.isGuest
-        : userDetails.username;
+  //   const isGuest =
+  //     typeof window.isGuest != "boolean"
+  //       ? window.isGuest
+  //       : userDetails.username;
 
-    this.state = {
-      userDetails,
-      isGuest,
-      showDetails: false,
-    };
-  }
+  //   this.state = {
+  //     userDetails,
+  //     isGuest,
+  //     showDetails: false,
+  //   };
+  // }
 
-  handleViewDetails = () => {
-    this.setState({
-      showDetails: true,
-    });
-  };
+  // handleViewDetails = () => {
+  //   this.setState({
+  //     showDetails: true,
+  //   });
+  // };
 
-  renderUserDetails = () => {
-    const { userDetails } = this.state;
+  // renderUserDetails = () => {
+  //   const { userDetails } = this.state;
 
-    return (
-      <BasicSegment>
-        <h3>My Details</h3>
+  //   return (
+  //     <BasicSegment>
+  //       <h3>My Details</h3>
 
-        <p>
-          <strong>Username:</strong>{" "}
-          {userDetails.username || "Not available"}
-        </p>
+  //       <p>
+  //         <strong>Username:</strong>{" "}
+  //         {userDetails.username || "Not available"}
+  //       </p>
 
-        <p>
-          <strong>Email:</strong>{" "}
-          {userDetails.emailAddress || "Not available"}
-        </p>
+  //       <p>
+  //         <strong>Email:</strong>{" "}
+  //         {userDetails.emailAddress || "Not available"}
+  //       </p>
 
-        <p>
-          <strong>First Name:</strong>{" "}
-          {userDetails.firstName || "Not available"}
-        </p>
+  //       <p>
+  //         <strong>First Name:</strong>{" "}
+  //         {userDetails.firstName || "Not available"}
+  //       </p>
 
-        <p>
-          <strong>Last Name:</strong>{" "}
-          {userDetails.lastName || "Not available"}
-        </p>
+  //       <p>
+  //         <strong>Last Name:</strong>{" "}
+  //         {userDetails.lastName || "Not available"}
+  //       </p>
 
-        <hr />
+  //       <hr />
 
-        <h4>All Available User Attributes</h4>
+  //       <h4>All Available User Attributes</h4>
 
-        <pre
-          style={{
-            overflowX: "auto",
-            padding: "10px",
-            background: "#f5f5f5",
-          }}
-        >
-          {JSON.stringify(userDetails, null, 2)}
-        </pre>
-      </BasicSegment>
-    );
-  };
+  //       <pre
+  //         style={{
+  //           overflowX: "auto",
+  //           padding: "10px",
+  //           background: "#f5f5f5",
+  //         }}
+  //       >
+  //         {JSON.stringify(userDetails, null, 2)}
+  //       </pre>
+  //     </BasicSegment>
+  //   );
+  // };
 
   render() {
     const { isGuest, showDetails } = this.state;
@@ -118,9 +118,9 @@ export default class Screen extends React.Component {
     return (
       <Container>
         <VBox>
-          <BannerHeader theme="alt" key="header" data-flex={0}>
+          {/* <BannerHeader theme="alt" key="header" data-flex={0}>
             User Details
-          </BannerHeader>
+          </BannerHeader> */}
 
           <BasicSegment>
             <p>
@@ -128,12 +128,12 @@ export default class Screen extends React.Component {
               campusM account.
             </p>
 
-            <button
+            {/* <button
               type="button"
               onClick={this.handleViewDetails}
             >
               View My Details
-            </button>
+            </button> */}
           </BasicSegment>
 
           {showDetails && (
