@@ -3,7 +3,7 @@
   connected: true
   auth: true
   scripts:[
-    "screen"
+    "screen-2"
   ]
 >>
 
@@ -11,14 +11,15 @@
 
 << content "body" >>
 
-  <% utils = @aek.extension("CMAuthUtilities") %>
-  <% attrs = utils.getTokenAttributes() if utils %>
+  {% set utils = aek.extension("CMAuthUtilities") %}
+  {% set attrs = utils.getTokenAttributes() %}
 
   <script>
     window.userDetails = <%- JSON.stringify(attrs || {}) %>;
 
     console.log("====================================");
     console.log("CMAuth Token Attributes:", window.userDetails);
+    console.log("Available keys:", Object.keys(window.userDetails));
     console.log("====================================");
   </script>
 
