@@ -189,9 +189,9 @@
 
 
 import React from "react";
-import { Container, BannerHeader, BasicSegment } from "@ombiel/aek-lib";
+import { reactRender, Container, BannerHeader, BasicSegment } from "@ombiel/aek-lib";
 
-export default class Screen extends React.Component {
+class Screen extends React.Component {
   render() {
     return (
       <Container>
@@ -203,3 +203,5 @@ export default class Screen extends React.Component {
     );
   }
 }
+
+reactRender(<Screen />);

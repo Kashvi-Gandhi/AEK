@@ -4,8 +4,8 @@ homepage:
 
       - desc: Welcome Pack
         screenName: welcome-pack
-      - desc: Screen_2
-        screenName: screen-2
+      - desc: Screen
+        screenName: screen
 
       # - desc: welcome-packk
       #   screenName: welcome-packk
