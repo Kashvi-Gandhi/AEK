@@ -1,26 +1,12 @@
 <<
 @configure
   connected: true
-  auth: true
   scripts:[
-    "screen-2"
+    "screen"
   ]
 >>
 
 << extend "templates/master.ect" >>
 
 << content "body" >>
-
-  {% set utils = aek.extension("CMAuthUtilities") %}
-  {% set attrs = utils.getTokenAttributes() %}
-
-  <script>
-    window.userDetails = <%- JSON.stringify(attrs || {}) %>;
-
-    console.log("====================================");
-    console.log("CMAuth Token Attributes:", window.userDetails);
-    console.log("Available keys:", Object.keys(window.userDetails));
-    console.log("====================================");
-  </script>
-
 << end >>
