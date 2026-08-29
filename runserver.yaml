@@ -4,8 +4,6 @@ homepage:
 
       - desc: Welcome Pack
         screenName: welcome-pack
-      - desc: Screen
-        screenName: screen
       - desc: User Details
         screenName: user-details
 
