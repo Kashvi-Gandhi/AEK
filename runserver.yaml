@@ -6,11 +6,8 @@ homepage:
         screenName: welcome-pack
       - desc: Screen
         screenName: screen
-<<<<<<< HEAD
       - desc: User Details
         screenName: user-details
-=======
->>>>>>> b70f36f9839ff5de32925d62d49b8c8ebe005f41
 
 
       # - desc: welcome-packk
