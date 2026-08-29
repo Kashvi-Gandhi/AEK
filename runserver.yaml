@@ -6,8 +6,9 @@ homepage:
         screenName: welcome-pack
       - desc: Screen
         screenName: screen
-      - desc: newscreen
-        screenName: newscreen
+      - desc: User Details
+        screenName: user-details
+
 
       # - desc: welcome-packk
       #   screenName: welcome-packk

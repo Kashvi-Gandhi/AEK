@@ -18,7 +18,7 @@ export default class Screen extends React.Component {
     return (
       <Container>
         <VBox>
-          <BannerHeader theme="alt" key="header" data-flex={0}>newscreen</BannerHeader>
+          <BannerHeader theme="alt" key="header" data-flex={0}>User Details</BannerHeader>
           <BasicSegment>
             <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
