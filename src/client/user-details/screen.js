@@ -141,3 +141,6 @@ export default class Screen extends React.Component {
     );
   }
 }
+
+
+//need to show user details on the page in basic any form (json, etc). 
