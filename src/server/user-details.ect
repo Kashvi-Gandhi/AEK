@@ -5,16 +5,19 @@
   ]
 >>
 
-<< extend "templates/master.ect" >>
+<%
+  utils = @aek.extension("CMAuthUtilities")
+  attrs = utils.getTokenAttributes() if utils
+%>
 
-<< content "body" >>
+<html>
+  <body>
+    <h1>CMAuth Test</h1>
 
-  <% utils = @aek.extension("CMAuthUtilities") %>
-  <% attrs = utils.getTokenAttributes() if utils %>
+    <p>CMAuthUtilities exists:</p>
+    <pre><%- JSON.stringify(!!utils) %></pre>
 
-  <script>
-    window.userDetails = <%- JSON.stringify(attrs || {}) %>;
-    console.log("Raw CMAuth Attributes:", window.userDetails);
-  </script>
-
-<< end >>
+    <p>Attributes:</p>
+    <pre><%- JSON.stringify(attrs || {}) %></pre>
+  </body>
+</html>

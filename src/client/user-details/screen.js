@@ -88,12 +88,96 @@
 
 
 
+// import React from "react";
+// import { Container, VBox, BannerHeader, BasicSegment } from "@ombiel/aek-lib";
+
+// export default class Screen extends React.Component {
+//   render() {
+//     const userDetails = window.userDetails || {};
+//     const entries = Object.entries(userDetails);
+
+//     return (
+//       <Container>
+//         <VBox>
+//           <BannerHeader theme="alt" key="header" data-flex={0}>
+//             Raw CMAuth Attributes
+//           </BannerHeader>
+
+//           <BasicSegment>
+//             <h3>All Available Attributes ({entries.length})</h3>
+
+//             {entries.length > 0 ? (
+//               <ul>
+//                 {entries.map(([key, value]) => (
+//                   <li key={key} style={{ marginBottom: "8px" }}>
+//                     <strong>{key}:</strong>{" "}
+//                     {typeof value === "object"
+//                       ? JSON.stringify(value)
+//                       : String(value)}
+//                   </li>
+//                 ))}
+//               </ul>
+//             ) : (
+//               <p>No attributes found (window.userDetails is empty).</p>
+//             )}
+
+//             <hr />
+
+//             <h4>Raw JSON Object Dump</h4>
+
+//             <pre
+//               style={{
+//                 overflowX: "auto",
+//                 padding: "10px",
+//                 background: "#f5f5f5",
+//                 fontSize: "12px",
+//               }}
+//             >
+//               {JSON.stringify(userDetails, null, 2)}
+//             </pre>
+//           </BasicSegment>
+//         </VBox>
+//       </Container>
+//     );
+//   }
+// }
+
+
+// //need to show user details on the page in basic any form (json, etc). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React from "react";
 import { Container, VBox, BannerHeader, BasicSegment } from "@ombiel/aek-lib";
 
 export default class Screen extends React.Component {
   render() {
-    const userDetails = window.userDetails || {};
+    const userDetails = {
+      ectTest: true,
+      message: "React screen is working"
+    };
+
     const entries = Object.entries(userDetails);
 
     return (
@@ -106,33 +190,13 @@ export default class Screen extends React.Component {
           <BasicSegment>
             <h3>All Available Attributes ({entries.length})</h3>
 
-            {entries.length > 0 ? (
-              <ul>
-                {entries.map(([key, value]) => (
-                  <li key={key} style={{ marginBottom: "8px" }}>
-                    <strong>{key}:</strong>{" "}
-                    {typeof value === "object"
-                      ? JSON.stringify(value)
-                      : String(value)}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No attributes found (window.userDetails is empty).</p>
-            )}
+            {entries.map(([key, value]) => (
+              <div key={key}>
+                <strong>{key}:</strong> {String(value)}
+              </div>
+            ))}
 
-            <hr />
-
-            <h4>Raw JSON Object Dump</h4>
-
-            <pre
-              style={{
-                overflowX: "auto",
-                padding: "10px",
-                background: "#f5f5f5",
-                fontSize: "12px",
-              }}
-            >
+            <pre>
               {JSON.stringify(userDetails, null, 2)}
             </pre>
           </BasicSegment>
@@ -141,6 +205,3 @@ export default class Screen extends React.Component {
     );
   }
 }
-
-
-//need to show user details on the page in basic any form (json, etc). 
