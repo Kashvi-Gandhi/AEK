@@ -147,7 +147,6 @@ const Screen = () => {
   console.log("window.userDetailsData:", window.userDetailsData);
   console.log("window.userData:", window.userData);
   const data = window.userDetailsData || {};
-  
 
   return (
     <Container>

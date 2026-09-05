@@ -10,12 +10,16 @@
 
 >>
 
-{% set utils = aek.extension("CMAuthUtilities") %}
-{% set attrs = utils.getTokenAttributes() %}
-{% set extra = utils.getExtraAttributes() %}
+<< block 'init': >>
 
-{% set twigVar1 = "ECT text twig variable 1" %}
-{% set twigVar2 = "ECT text twig variable 2" %}
+  {% set utils = aek.extension("CMAuthUtilities") %}
+  {% set attrs = utils.getTokenAttributes() %}
+  {% set extra = utils.getExtraAttributes() %}
+
+  {% set twigVar1 = "ECT text twig variable 1" %}
+  {% set twigVar2 = "ECT text twig variable 2" %}
+
+<< end >>
 
 << extend "templates/master.ect" >>
 
@@ -31,7 +35,7 @@
 
     console.log("Token Attributes:", window.userDetailsData.tokenAttributes);
 
-    window.userData = "xxx";
+    window.userData = "{{twigVar1}}";
     console.log("twig data:", window.userData);
 
 
