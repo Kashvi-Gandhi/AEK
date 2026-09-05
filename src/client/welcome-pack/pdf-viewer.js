@@ -123,18 +123,9 @@ export default class PdfViewer extends React.Component {
 
     try {
 
-      console.log(
-        "=========================================="
-      );
-
-      console.log(
-        "PDF.JS - LOADING PDF"
-      );
-
-      console.log(
-        "=========================================="
-      );
-
+      // console.log(
+      //   "PDF.JS - LOADING PDF"
+      // );
 
       const loadingTask =
         pdfjsLib.getDocument({
@@ -152,15 +143,15 @@ export default class PdfViewer extends React.Component {
         pdf;
 
 
-      console.log(
-        "PDF.js loaded document"
-      );
+      // console.log(
+      //   "PDF.js loaded document"
+      // );
 
 
-      console.log(
-        "Pages:",
-        pdf.numPages
-      );
+      // console.log(
+      //   "Pages:",
+      //   pdf.numPages
+      // );
 
 
       this.setState(
@@ -183,14 +174,14 @@ export default class PdfViewer extends React.Component {
 
     } catch (error) {
 
-      console.error(
-        "PDF.js failed to load document:"
-      );
+      // console.error(
+      //   "PDF.js failed to load document:"
+      // );
 
 
-      console.error(
-        error
-      );
+      // console.error(
+      //   error
+      // );
 
 
       this.setState({
@@ -248,10 +239,10 @@ export default class PdfViewer extends React.Component {
     }
 
 
-    console.log(
-      "PDF.js rendering at scale:",
-      this.state.scale
-    );
+    // console.log(
+    //   "PDF.js rendering at scale:",
+    //   this.state.scale
+    // );
 
 
     try {
@@ -456,16 +447,16 @@ export default class PdfViewer extends React.Component {
         await renderTask.promise;
 
 
-        console.log(
-          "Rendered page:",
-          pageNumber
-        );
+      //   console.log(
+      //     "Rendered page:",
+      //     pageNumber
+      //   );
       }
 
 
-      console.log(
-        "PDF.js rendering complete"
-      );
+      // console.log(
+      //   "PDF.js rendering complete"
+      // );
 
 
     } catch (error) {
@@ -479,14 +470,14 @@ export default class PdfViewer extends React.Component {
       }
 
 
-      console.error(
-        "PDF.js render error:"
-      );
+      // console.error(
+      //   "PDF.js render error:"
+      // );
 
 
-      console.error(
-        error
-      );
+      // console.error(
+      //   error
+      // );
 
 
       this.setState({
