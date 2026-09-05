@@ -10,7 +10,7 @@
 
   {% set twigVar1 = "ECT text twig variable 1" %}
   {% set twigVar2 = "ECT text twig variable 2" %}
-  {% set username = "attrs|get_item("username") %}
+  {% set username = attrs|get_item("username") %}
 
 
 <html lang="en" data-aek-package="[[__package_data__]]" data-public-assets="[[__public_assets__]]" data-env="prod" data-platform="{{ aek.get_platform() }}" >
