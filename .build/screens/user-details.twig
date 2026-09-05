@@ -24,6 +24,15 @@
   
   <script>
     console.log("ect script added")
+
+    window.userTextData = 
+    { 
+      tokenAttributes: "&#34;Server ect data SUCCESSFUL xyz&#34;",
+      extraAttributes: "server second message"
+    };
+
+    console.log("Text Attributes:", window.userTextData.tokenAttributes);
+
     window.userDetailsData = {
        tokenAttributes: "{{ attrs|json_encode|raw }}",
        extraAttributes: "{{ extra|json_encode|raw }}"
