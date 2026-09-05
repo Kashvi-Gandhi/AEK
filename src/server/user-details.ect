@@ -5,7 +5,7 @@
       "user-details"
     ]
     
-  displayMessage = "Server ect data SUCCESSFUL 2:53";
+  displayMessage = "Server ect data SUCCESSFUL xyz";
   secondMessage = "server second message";
 
 >>
@@ -27,6 +27,15 @@
 
   <script>
     console.log("ect script added")
+
+    window.userTextData = 
+    { 
+      tokenAttributes: "<<= JSON.stringify(displayMessage) >>",
+      extraAttributes: "<<= secondMessage >>"
+    };
+
+    console.log("Text Attributes:", window.userTextData.tokenAttributes);
+
     window.userDetailsData = {
        tokenAttributes: "{{ attrs|json_encode|raw }}",
        extraAttributes: "{{ extra|json_encode|raw }}"
