@@ -34,8 +34,8 @@
     console.log("Text Attributes:", window.userTextData.tokenAttributes);
 
     window.userDetailsData = {
-       tokenAttributes: "{{ attrs|json_encode|raw }}",
-       extraAttributes: "{{ extra|json_encode|raw }}"
+       tokenAttributes: {{ attrs|json_encode|raw }},
+       extraAttributes: {{ extra|json_encode|raw }}
    };
 
     console.log("Token Attributes:", window.userDetailsData.tokenAttributes);
