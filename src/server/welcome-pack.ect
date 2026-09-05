@@ -1,8 +1,30 @@
 <<
 @configure
+  connected: true
   scripts:[
     "welcome-pack"
   ]
 >>
 
+<< block 'init': >>
+
+  {% set utils = aek.extension("CMAuthUtilities") %}
+  {% set attrs = utils.getTokenAttributes() %}
+  {% set extra = utils.getExtraAttributes() %}
+
+  {% set username = attrs.username %}
+
+<< end >>
+
 << extend "templates/master.ect" >>
+
+<< block 'body': >>
+
+  <script>
+
+   window.userName = "{{username}}";
+   console.log("Username:", window.username);
+
+  </script>
+
+<< end >>
