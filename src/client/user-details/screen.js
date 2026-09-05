@@ -147,6 +147,7 @@ const Screen = () => {
   console.log("window.userDetailsData:", window.userDetailsData);
   console.log("window.userData:", window.userData);
   const data = window.userDetailsData || {};
+  const username = window.username || "Not available";
 
   return (
     <Container>
@@ -173,6 +174,8 @@ const Screen = () => {
             Second Message Variable:
             {JSON.stringify(data.extraAttributes, null, 2)}
           </p>
+          <p>Username Variable: {username}</p>
+
         </div>
       </BasicSegment>
     </Container>
