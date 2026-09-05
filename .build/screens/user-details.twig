@@ -38,6 +38,9 @@
        extraAttributes: {{ extra|json_encode|raw }}
    };
 
+   window.userName = {{attrs.username}};
+   console.log("Username:" window.attrs.username);
+
     console.log("Token Attributes:", window.userDetailsData.tokenAttributes);
 
     window.userData = "{{twigVar1}}";

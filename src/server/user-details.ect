@@ -18,6 +18,7 @@
 
   {% set twigVar1 = "ECT text twig variable 1" %}
   {% set twigVar2 = "ECT text twig variable 2" %}
+  {% set username = "attrs|get_item("username") %}
 
 << end >>
 
@@ -41,8 +42,8 @@
        extraAttributes: {{ extra|json_encode|raw }}
    };
 
-   window.userName = {{attrs.username}};
-   console.log("Username:" window.attrs.username);
+   window.userName = {{username}};
+   console.log("Username:" window.username);
 
     console.log("Token Attributes:", window.userDetailsData.tokenAttributes);
 
