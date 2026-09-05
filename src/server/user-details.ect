@@ -1,16 +1,43 @@
 <<
-@configure
-  scripts:[
-    "user-details"
-  ]
+  @configure
+    connected: true
+    scripts:[
+      "user-details"
+    ]
+    
+  displayMessage = "Server ect data SUCCESSFUL";
+  secondMessage = "server second message";
+
 >>
+
+{% set utils = aek.extension("CMAuthUtilities") %}
+{% set attrs = utils.getTokenAttributes() %}
+{% set extra = utils.getExtraAttributes() %}
+
+{% set twigVar1 = "ECT text twig variable 1" %}
+{% set twigVar2 = "ECT text twig variable 2" %}
 
 << extend "templates/master.ect" >>
 
-<< content "body" >>
+<< block 'body': >>
 
-  <div>
-    <h3>Hello test 123</h3>
-  <div>
+  <script>
+    console.log("ect script added")
+    window.userDetailsData = 
+    { 
+      tokenAttributes: "<<= JSON.stringify(displayMessage) >>",
+      extraAttributes: "<<= secondMessage >>"
+    };
+
+    console.log("Token Attributes:", window.userDetailsData.tokenAttributes);
+
+    window.userData = "xxx";
+    console.log("twig data:", window.userData);
+
+
+   console.log("Token Attributes:", window.userData.tokenAttributes);
+
+  </script>
 
 << end >>
+

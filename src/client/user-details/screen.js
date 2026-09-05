@@ -62,32 +62,6 @@
 //   }
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from "react";
 // import { Container, VBox, BannerHeader, BasicSegment } from "@ombiel/aek-lib";
 
@@ -164,44 +138,46 @@
 
 
 
-
-
-
-
 import React from "react";
 import { Container, VBox, BannerHeader, BasicSegment } from "@ombiel/aek-lib";
 
-export default class Screen extends React.Component {
-  render() {
-    const userDetails = {
-      ectTest: true,
-      message: "React screen is working"
-    };
+const Screen = () => {
+  // Read the variable attached to the window object by your .ect file
+  console.log("screen.js script added");
+  console.log("window.userDetailsData:", window.userDetailsData);
+  console.log("window.userData:", window.userData);
+  const data = window.userDetailsData || {};
+  
 
-    const entries = Object.entries(userDetails);
+  return (
+    <Container>
+      <BannerHeader title="React Test" />
+      <BasicSegment>
+        <h1>REACT TEST SUCCESSFUL</h1>
+        <p>This content is coming from screen.js</p>
 
-    return (
-      <Container>
-        <VBox>
-          <BannerHeader theme="alt" key="header" data-flex={0}>
-            Raw CMAuth Attributes
-          </BannerHeader>
+        {/* Displaying ECT Variables */}
+        <div
+          style={{
+            marginTop: "15px",
+            padding: "10px",
+            background: "#f0f0f0",
+            borderRadius: "4px",
+          }}
+        >
+          <h3>Variables from ECT File:</h3>
+          <p>
+            Test Message Variable:
+            {JSON.stringify(data.tokenAttributes, null, 2)}
+          </p>
+          <p>
+            Second Message Variable:
+            {JSON.stringify(data.extraAttributes, null, 2)}
+          </p>
+        </div>
+      </BasicSegment>
+    </Container>
+  );
+};
 
-          <BasicSegment>
-            <h3>All Available Attributes ({entries.length})</h3>
-
-            {entries.map(([key, value]) => (
-              <div key={key}>
-                <strong>{key}:</strong> {String(value)}
-              </div>
-            ))}
-
-            <pre>
-              {JSON.stringify(userDetails, null, 2)}
-            </pre>
-          </BasicSegment>
-        </VBox>
-      </Container>
-    );
-  }
-}
+export default Screen;
