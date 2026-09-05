@@ -40,7 +40,7 @@ export default class Screen extends React.Component {
 
     try {
       // 1. Fetch ParticipantType dynamically from AIFS API using Contact ID
-      const fetchedCampus = await getParticipantType(contactid);
+      const fetchedCampus = await getParticipantType(window.contactid);
 
       // 2. Immediately reflect the fetched campus in state
       this.setState({ campus: fetchedCampus });
