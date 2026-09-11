@@ -62,7 +62,7 @@
   {% set username = attrs.username %}
 
   {# 1. Put the exact Azure Function URL you want to hide right here #}
-  {% set azureUrl = "https://YOUR-AZURE-APP.azurewebsites.net/welcome-pack/user-details?contactID=" ~ username %}
+  {% set azureUrl = "https://aek-sharepoint-doc-fetch-bngdcsdwavdqf9gm.uksouth-01.azurewebsites.net/welcome-pack/user-details?contactID=" ~ username %}
   
   {# 2. Make the server-side request (Invisible to the frontend Network tab) #}
   {% set apiResponse = aek.ws(azureUrl).get().json() %}
