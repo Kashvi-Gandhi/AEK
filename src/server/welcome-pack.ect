@@ -57,33 +57,25 @@
 >>
 
 << block 'init': >>
-
   {% set utils = aek.extension("CMAuthUtilities") %}
   {% set attrs = utils.getTokenAttributes() %}
-  {% set extra = utils.getExtraAttributes() %}
-
   {% set username = attrs.username %}
 
-  {# 
-     Perform the API call securely on the server.
-     Replace the placeholder URL with the actual endpoint your proxy was pointing to. 
-  #}
-  {% set apiUrl = "https://aek-sharepoint-doc-fetch-bngdcsdwavdqf9gm.uksouth-01.azurewebsites.net/api?contactID=" ~ username %}
-  {% set apiResponse = aek.ws(apiUrl).get().json() %}
+  {# 1. Put the exact Azure Function URL you want to hide right here #}
+  {% set azureUrl = "https://YOUR-AZURE-APP.azurewebsites.net/welcome-pack/user-details?contactID=" ~ username %}
   
-  {# Extract the participant type directly from the server-side response #}
-  {% set backendParticipantType = apiResponse.applicationList[0].ParticipantType %}
-
+  {# 2. Make the server-side request (Invisible to the frontend Network tab) #}
+  {% set apiResponse = aek.ws(azureUrl).get().json() %}
+  
+  {# 3. Extract the exact value needed #}
+  {% set participantType = apiResponse.applicationList[0].ParticipantType %}
 << end >>
 
 << extend "templates/master.ect" >>
 
 << block 'body': >>
-
   <script>
-   window.contactid = "{{username}}";
-   // Inject the backend-fetched variable directly into the browser
-   window.participantType = "{{backendParticipantType}}"; 
+   // 4. Safely pass ONLY the final value to the frontend
+   window.participantType = "{{participantType}}";
   </script>
-
 << end >>
