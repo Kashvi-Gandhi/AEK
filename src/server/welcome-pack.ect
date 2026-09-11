@@ -1,3 +1,7 @@
+{#
+
+
+
 <<
 @configure
   connected: true
@@ -26,3 +30,60 @@
 
 << end >>
 
+
+
+
+#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<
+@configure
+  connected: true
+  scripts:[
+    "welcome-pack"
+  ]
+>>
+
+<< block 'init': >>
+
+  {% set utils = aek.extension("CMAuthUtilities") %}
+  {% set attrs = utils.getTokenAttributes() %}
+  {% set extra = utils.getExtraAttributes() %}
+
+  {% set username = attrs.username %}
+
+  {# 
+     Perform the API call securely on the server.
+     Replace the placeholder URL with the actual endpoint your proxy was pointing to. 
+  #}
+  {% set apiUrl = "https://aek-sharepoint-doc-fetch-bngdcsdwavdqf9gm.uksouth-01.azurewebsites.net/api?contactID=" ~ username %}
+  {% set apiResponse = aek.ws(apiUrl).get().json() %}
+  
+  {# Extract the participant type directly from the server-side response #}
+  {% set backendParticipantType = apiResponse.applicationList[0].ParticipantType %}
+
+<< end >>
+
+<< extend "templates/master.ect" >>
+
+<< block 'body': >>
+
+  <script>
+   window.contactid = "{{username}}";
+   // Inject the backend-fetched variable directly into the browser
+   window.participantType = "{{backendParticipantType}}"; 
+  </script>
+
+<< end >>

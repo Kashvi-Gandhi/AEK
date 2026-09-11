@@ -198,3 +198,63 @@
 //     return this.state.pdfData ? this.renderPdf() : this.renderMain();
 //   }
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+import { Container, VBox, BannerHeader, BasicSegment } from "@ombiel/aek-lib";
+
+export default class Screen extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    // Instantly read the variable injected by the server-side ECT file
+    this.state = {
+      participantType: window.participantType || "Loading..." 
+    };
+  }
+
+  render() {
+    return (
+      <Container>
+        <VBox>
+          <BannerHeader theme="alt" key="header" data-flex={0}>
+            Welcome Pack
+          </BannerHeader>
+
+          <BasicSegment>
+            <h2>Welcome Pack Details</h2>
+            <p><strong>Participant Type:</strong> {this.state.participantType}</p>
+          </BasicSegment>
+        </VBox>
+      </Container>
+    );
+  }
+}
