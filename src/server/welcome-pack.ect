@@ -1,7 +1,3 @@
-{#
-
-
-
 <<
 @configure
   connected: true
@@ -28,54 +24,4 @@
    window.contactid = "{{username}}";
   </script>
 
-<< end >>
-
-
-
-
-#}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<
-@configure
-  connected: true
-  scripts:[
-    "welcome-pack"
-  ]
->>
-
-<< block 'init': >>
-  {% set utils = aek.extension("CMAuthUtilities") %}
-  {% set attrs = utils.getTokenAttributes() %}
-  {% set username = attrs.username %}
-
-  {# 1. Put the exact Azure Function URL you want to hide right here #}
-  {% set azureUrl = "https://aek-sharepoint-doc-fetch-bngdcsdwavdqf9gm.uksouth-01.azurewebsites.net/welcome-pack/user-details?contactID=" ~ username %}
-  
-  {# 2. Make the server-side request (Invisible to the frontend Network tab) #}
-  {% set apiResponse = aek.ws(azureUrl).get().json() %}
-  
-  {# 3. Extract the exact value needed #}
-  {% set participantType = apiResponse.applicationList[0].ParticipantType %}
-<< end >>
-
-<< extend "templates/master.ect" >>
-
-<< block 'body': >>
-  <script>
-   // 4. Safely pass ONLY the final value to the frontend
-   window.participantType = "{{participantType}}";
-  </script>
 << end >>
